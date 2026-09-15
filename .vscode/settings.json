@@ -1,0 +1,6 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "assignment2/vault/Cargo.toml",
+        "assignment2/escrow/Cargo.toml"
+    ]
+}
