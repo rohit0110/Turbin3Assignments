@@ -1,0 +1,39 @@
+[package]
+name = "stablecoin"
+version = "0.1.0"
+description = "Token-2022 remittance stablecoin: transfer fee, KYC gating, metadata pointer, close authority, seizure authority, confidential transfers"
+edition.workspace = true
+rust-version.workspace = true
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "stablecoin"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build"]
+anchor-debug = []
+custom-heap = []
+custom-panic = []
+
+[dependencies]
+anchor-lang = "1.1.2"
+spl-token-2022-interface = "3.1.1"
+spl-pod = "0.7.4"
+solana-zk-sdk-pod = "0.1.2"
+spl-token-confidential-transfer-proof-extraction = "0.6.1"
+bytemuck = "1.25.2"
+
+[dev-dependencies]
+litesvm = "0.10.0"
+solana-message = "3.0.1"
+solana-transaction = "3.0.2"
+solana-signer = "3.0.0"
+solana-keypair = "3.0.1"
+spl-associated-token-account-interface = "2.0.0"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }
